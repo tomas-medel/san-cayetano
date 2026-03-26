@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <title>Novedades | PARROQUIA SANTUARIO SAN CAYETANO</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-shell nav-bar">
+        <a class="brand" href="index.html">
+          <div class="brand-mark">
+            <img src="logo.png" alt="Logo de la parroquia" />
+          </div>
+          <div class="brand-copy">
+            <strong>PARROQUIA SANTUARIO SAN CAYETANO</strong>
+            <span>Comunidad parroquial</span>
+          </div>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" data-menu-toggle>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav-links" data-menu-panel>
+          <a href="index.html">Inicio</a>
+          <a href="grupos.html">Grupos</a>
+          <a href="colegios.html">Colegios</a>
+          <a href="contactanos.html">Contáctanos</a>
+          <a href="capillas.html">Capillas</a>
+          <a class="active" href="novedades.html">Novedades</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="site-shell">
+          <article class="page-hero-card">
+            <div class="section-kicker">Novedades</div>
+            <h1>Novedades</h1>
+            <p>Novedades de la comunidad parroquial.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="site-shell flyer-grid">
+          <article class="flyer-card">
+            <button class="flyer-trigger" type="button" data-flyer-trigger data-flyer-src="/novedades/novedad1.jpeg" data-flyer-alt="Flyer de Semana Santa">
+              <img class="flyer-image" src="/novedades/novedad1.jpeg" alt="Flyer de Semana Santa" />
+            </button>
+            <div class="flyer-copy">
+              <h3>Semana Santa</h3>
+              <p>Celebraciones principales y actividades de la semana.</p>
+            </div>
+          </article>
+
+          <article class="flyer-card">
+            <button class="flyer-trigger" type="button" data-flyer-trigger data-flyer-src="/novedades/novedad2.jpeg" data-flyer-alt="Flyer de horarios de capillas">
+              <img class="flyer-image" src="/novedades/novedad2.jpeg" alt="Flyer de horarios de capillas" />
+            </button>
+            <div class="flyer-copy">
+              <h3>Semana Santa</h3>
+              <p>Horarios en las capillas.</p>
+            </div>
+          </article>
+
+          <article class="flyer-card">
+            <button class="flyer-trigger" type="button" data-flyer-trigger data-flyer-src="/novedades/novedad3.jpeg" data-flyer-alt="Flyer de confesiones">
+              <img class="flyer-image" src="/novedades/novedad3.jpeg" alt="Flyer de confesiones" />
+            </button>
+            <div class="flyer-copy">
+              <h3>Confesiones</h3>
+              <p>Horarios de confesiones.</p>
+            </div>
+          </article>
+
+          <article class="flyer-card">
+            <button class="flyer-trigger" type="button" data-flyer-trigger data-flyer-src="/novedades/novedad4.jpeg" data-flyer-alt="Flyer de Vía Crucis">
+              <img class="flyer-image" src="/novedades/novedad4.jpeg" alt="Flyer de Vía Crucis" />
+            </button>
+            <div class="flyer-copy">
+              <h3>Via Crucis</h3>
+              <p>Horarios de Via Crucis.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal-backdrop flyer-backdrop" data-flyer-modal hidden>
+      <div class="flyer-modal" role="dialog" aria-modal="true" aria-labelledby="flyer-modal-title">
+        <button class="modal-close" type="button" aria-label="Cerrar" data-flyer-close>&times;</button>
+        <img class="flyer-modal-image" data-flyer-image src="" alt="" />
+        <p class="flyer-modal-caption" id="flyer-modal-title" data-flyer-caption></p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="site-shell footer-card">
+        <div>
+          <strong>Novedades parroquiales</strong>
+          <div class="footer-copy">Eventos y anuncios visuales.</div>
+        </div>
+        <div class="footer-links">
+          <a href="colegios.html">Colegios</a>
+          <a href="index.html">Inicio</a>
+          <a href="contactanos.html">Contacto</a>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/parroquiasancayetanodel/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/pquia.sancayetano.1?locale=es_LA" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.youtube.com/@santuariosancayetanodelviso" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

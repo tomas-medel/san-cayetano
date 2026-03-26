@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <title>Grupos | PARROQUIA SANTUARIO SAN CAYETANO</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-shell nav-bar">
+        <a class="brand" href="index.html">
+          <div class="brand-mark">
+            <img src="logo.png" alt="Logo de la parroquia" />
+          </div>
+          <div class="brand-copy">
+            <strong>PARROQUIA SANTUARIO SAN CAYETANO</strong>
+            <span>Comunidad parroquial</span>
+          </div>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" data-menu-toggle>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav-links" data-menu-panel>
+          <a href="index.html">Inicio</a>
+          <a class="active" href="grupos.html">Grupos</a>
+          <a href="colegios.html">Colegios</a>
+          <a href="contactanos.html">Contáctanos</a>
+          <a href="capillas.html">Capillas</a>
+          <a href="novedades.html">Novedades</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="site-shell">
+          <article class="page-hero-card">
+            <div class="section-kicker">Grupos</div>
+            <h1>Grupos parroquiales</h1>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="site-shell groups-layout">
+          <div class="group-list">
+            <button class="group-item" type="button" data-group="scout">
+              <strong>Scout</strong>
+              <small class="group-chapel">San Cayetano</small>
+              <span>Sábados 15:00</span>
+            </button>
+            <button class="group-item" type="button" data-group="moscati">
+              <strong>San Giuseppe Moscati</strong>
+              <small class="group-chapel">San Cayetano</small>
+              <span>Viernes 18:30</span>
+            </button>
+            <button class="group-item" type="button" data-group="filomena">
+              <strong>Santa Filomena</strong>
+              <small class="group-chapel">San Cayetano</small>
+              <span>Viernes 18:30</span>
+            </button>
+            <button class="group-item" type="button" data-group="bernardita">
+              <strong>Santa Bernardita</strong>
+              <small class="group-chapel">Lourdes</small>
+              <span>Sábados 15:00</span>
+            </button>
+            <button class="group-item" type="button" data-group="sanjose">
+              <strong>San José</strong>
+              <small class="group-chapel">San Cayetano</small>
+              <span>Sábados 19:30</span>
+            </button>
+            <button class="group-item" type="button" data-group="catequesis">
+              <strong>Catequesis</strong>
+              <small class="group-chapel">San Cayetano</small>
+              <span>Sábados 09:00</span>
+            </button>
+            <button class="group-item" type="button" data-group="piox">
+              <strong>San Pio X</strong>
+              <small class="group-chapel">San Cayetano</small>
+              <span>Sábados 18:00</span>
+            </button>
+            <button class="group-item" type="button" data-group="alcolicosAnonimos">
+              <strong>Alcolicos Anonimos</strong>
+              <small class="group-chapel">San Cayetano</small>
+              <span>Viernes 18:30</span>
+            </button>
+            <button class="group-item" type="button" data-group="narcoticosAnoninos">
+              <strong>Narcoticos Anonimos</strong>
+              <small class="group-chapel">San Cayetano</small>
+              <span>Viernes 18:30</span>
+            </button>
+            <button class="group-item" type="button" data-group="alanon">
+              <strong>ALANON</strong>
+              <small class="group-chapel">San Cayetano</small>
+              <span>Viernes 18:30</span>
+            </button>
+            <button class="group-item" type="button" data-group="redSanar">
+              <strong>Red Sanar</strong>
+              <small class="group-chapel">San Cayetano</small>
+              <span>Viernes 18:30</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal-backdrop" data-group-modal hidden>
+      <div class="group-modal" role="dialog" aria-modal="true" aria-labelledby="group-modal-title">
+        <button class="modal-close" type="button" aria-label="Cerrar" data-group-close>&times;</button>
+        <span class="section-kicker">Información</span>
+        <h2 class="section-title" id="group-modal-title" data-group-title>Scout</h2>
+        <p class="group-time" data-group-time>Sábados 15:30</p>
+        <p class="group-chapel group-chapel-modal" data-group-chapel>Capilla: San Cayetano</p>
+        <p data-group-description>
+          Grupo de encuentro, servicio y formaciÃ³n para niños, adolescentes y jóvenes.
+        </p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="site-shell footer-card">
+        <div>
+          <strong>¿Quieres sumarte?</strong>
+          <div class="footer-copy">Usa contacto para pedir información.</div>
+        </div>
+        <div class="footer-links">
+          <a href="colegios.html">Colegios</a>
+          <a href="contactanos.html">Contacto</a>
+          <a href="index.html">Inicio</a>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/parroquiasancayetanodel/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/pquia.sancayetano.1?locale=es_LA" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.youtube.com/@santuariosancayetanodelviso" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

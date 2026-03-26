@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <title>Capillas | PARROQUIA SANTUARIO SAN CAYETANO</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>{}
+  <body>
+    <header class="site-header">
+      <div class="site-shell nav-bar">
+        <a class="brand" href="index.html">
+          <div class="brand-mark">
+            <img src="logo.png" alt="Logo de la parroquia" />
+          </div>
+          <div class="brand-copy">
+            <strong>PARROQUIA SANTUARIO SAN CAYETANO</strong>
+            <span>Comunidad parroquial</span>
+          </div>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" data-menu-toggle>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav-links" data-menu-panel>
+          <a href="index.html">Inicio</a>
+          <a href="grupos.html">Grupos</a>
+          <a href="colegios.html">Colegios</a>
+          <a href="contactanos.html">Contáctanos</a>
+          <a class="active" href="capillas.html">Capillas</a>
+          <a href="novedades.html">Novedades</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      
+
+      <section class="section">
+        <div class="site-shell chapel-simple">
+          <article class="chapel-card">
+            <div class="section-kicker">Capillas</div>
+            <div class="field">
+              <label for="capilla">Listado de capillas</label>
+              <select id="capilla" data-chapel-select>
+                <option value="cayetano">San Cayetano · SEDE PARROQUIAL</option>
+                <option value="lourdes">Nuestra Señora de Lourdes</option>
+                <option value="carmen">Nuestra Señora del Carmen</option>
+                <option value="medalla">Nuestra Señora de la Medalla Milagrosa</option>
+                <option value="misericordioso">Jesús Misericordioso</option>
+              </select>
+            </div>
+          </article>
+
+          <article class="chapel-detail-card">
+            <div class="chapel-banner" data-chapel-banner></div>
+            <h2 class="section-title" data-chapel-name>San Cayetano · SEDE PARROQUIAL</h2>
+            <ul class="info-list">
+              <li><strong>Ubicación</strong><span data-chapel-location>Templo principal parroquial</span></li>
+              <li><strong>Horarios de misa</strong></li>
+            </ul>
+            <ul class="schedule-list" data-chapel-schedule></ul>
+            <div class="chapel-map-wrap">
+              <iframe
+                class="chapel-map"
+                data-chapel-map
+                title="Mapa de San Cayetano"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-shell footer-card">
+        <div>
+          <strong>Capillas de la comunidad</strong>
+          <div class="footer-copy">Elige una y consulta sus horarios.</div>
+        </div>
+        <div class="footer-links">
+          <a href="colegios.html">Colegios</a>
+          <a href="index.html">Inicio</a>
+          <a href="contactanos.html">Contacto</a>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/parroquiasancayetanodel/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/pquia.sancayetano.1?locale=es_LA" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.youtube.com/@santuariosancayetanodelviso" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

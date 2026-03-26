@@ -1,0 +1,275 @@
+﻿const chapels = {
+  cayetano: {
+    name: "San Cayetano · SEDE PARROQUIAL",
+    location: "Av. Ing. Eduardo Madero 1174",
+    image:
+      "/img/sancayetano.jpeg",
+    schedule: [
+      ["Lunes a viernes", "18:30"],
+      ["Sábados", "19:00"],
+      ["Domingos", "09:30, 11:00 y 19:00"],
+    ],
+  },
+  lourdes: {
+    name: "Nuestra Señora de Lourdes",
+    location: "2521 Sta. Margarita",
+    image:
+      "/img/lourdes.jpeg",
+    schedule: [
+      ["Miércoles", "17:00"],
+    ],
+  },
+  carmen: {
+    name: "Nuestra Señora del Carmen",
+    location: "Juan XXIII 5700, Del Viso",
+    image:
+      "/img/carmen.jpeg",
+    schedule: [
+      ["Jueves", "09:00"],
+    ],
+  },
+  medalla: {
+    name: "Nuestra Señora de la Medalla Milagrosa",
+    location: "1198 Abella Caprile",
+    image:
+      "/img/medalla.jpeg",
+    schedule: [
+      ["Jueves", "17:00"],
+    ],
+  },
+  misericordioso: {
+    name: "Jesús Misericordioso",
+    location: "Sto Domingo 1538",
+    mapEmbed:
+      "https://www.google.com/maps?q=Capilla%20Jes%C3%BAs%20Misericordioso%2C%20Sto%20Domingo%201538&output=embed",
+    image:
+      "/img/misericordioso.jpeg",
+    schedule: [
+      ["Miercoles", "17:00"],
+    ],
+  },
+};
+
+const groups = {
+  scout: {
+    title: "Scout",
+    time: "Sábados 15:30",
+    chapel: "San Cayetano",
+    description:
+      "Grupo de encuentro, servicio y formación para niños, adolescentes y jóvenes.",
+  },
+  moscati: {
+    title: "San Giuseppe Moscati",
+    time: "Martes 19:00",
+    chapel: "San Cayetano",
+    description:
+      "Espacio comunitario de formación y servicio inspirado en San Giuseppe Moscati.",
+  },
+  filomena: {
+    title: "Santa Filomena",
+    time: "Miércoles 18:30",
+    chapel: "San Cayetano",
+    description:
+      "Grupo de oración y encuentro dedicado a Santa Filomena.",
+  },
+  bernardita: {
+    title: "Santa Bernardita",
+    time: "Sabados 17:00",
+    chapel: "Lourdes",
+    description:
+      "Grupo parroquial de encuentro, oración y acompañamiento comunitario.",
+  },
+  sanjose: {
+    title: "San José",
+    time: "Jueves 19:30",
+    chapel: "San Cayetano",
+    description:
+      "Comunidad de encuentro fraterno con espacios de oración y acompañamiento.",
+  },
+  catequesis: {
+    title: "Catequesis",
+    time: "Sábados 09:00",
+    chapel: "San Cayetano",
+    description:
+      "Preparación para sacramentos con acompaÃ±amiento a niños y familias.",
+  },
+  piox: {
+    title: "San Pio X",
+    time: "Viernes 18:30",
+    chapel: "San Cayetano",
+    description:
+      "Grupo parroquial de formación y vida comunitaria bajo el patronazgo de San Pio X.",
+  },
+  alcolicosAnonimos: {
+    title: "Alcolicos Anonimos",
+    time: "Viernes 18:30",
+    chapel: "San Cayetano",
+    description:
+      "Grupo parroquial de formación y vida comunitaria bajo el patronazgo de San Pio X.",
+  },
+  narcoticosAnoninos: {
+    title: "Narcoticos Anonimos",
+    time: "Viernes 18:30",
+    chapel: "San Cayetano",
+    description:
+      "Grupo parroquial de formación y vida comunitaria bajo el patronazgo de San Pio X.",
+  },
+  alanon: {
+    title: "ALANON",
+    time: "Viernes 18:30",
+    chapel: "San Cayetano",
+    description:
+      "Grupo parroquial de formación y vida comunitaria bajo el patronazgo de San Pio X.",
+  },
+  redSanar: {
+    title: "Red Sanar",
+    time: "Viernes 18:30",
+    chapel: "San Cayetano",
+    description:
+      "Grupo parroquial de formación y vida comunitaria bajo el patronazgo de San Pio X.",
+  },
+};
+
+function renderChapel(chapelKey) {
+  const chapel = chapels[chapelKey];
+  if (!chapel) return;
+
+  const name = document.querySelector("[data-chapel-name]");
+  const schedule = document.querySelector("[data-chapel-schedule]");
+  const banner = document.querySelector("[data-chapel-banner]");
+  const location = document.querySelector("[data-chapel-location]");
+  const map = document.querySelector("[data-chapel-map]");
+
+  if (!name || !schedule || !banner || !location || !map) {
+    return;
+  }
+
+  name.textContent = chapel.name;
+  location.textContent = chapel.location;
+  banner.style.backgroundImage = `url('${chapel.image}')`;
+  map.src =
+    chapel.mapEmbed ||
+    `https://www.google.com/maps?q=${encodeURIComponent(chapel.location)}&output=embed`;
+  map.title = `Mapa de ${chapel.name}`;
+
+  schedule.innerHTML = chapels[chapelKey].schedule
+    .map(([day, time]) => `<li><strong>${day}</strong><span>${time}</span></li>`)
+    .join("");
+}
+
+function renderGroup(groupKey) {
+  const group = groups[groupKey];
+  if (!group) return;
+
+  const title = document.querySelector("[data-group-title]");
+  const time = document.querySelector("[data-group-time]");
+  const chapel = document.querySelector("[data-group-chapel]");
+  const description = document.querySelector("[data-group-description]");
+
+  if (!title || !time || !chapel || !description) {
+    return;
+  }
+
+  title.textContent = group.title;
+  time.textContent = group.time;
+  chapel.textContent = `Capilla: ${group.chapel}`;
+  description.textContent = group.description;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  function closeGroupModal() {
+    const modal = document.querySelector("[data-group-modal]");
+    if (modal) {
+      modal.hidden = true;
+    }
+    document.body.classList.remove("modal-open");
+  }
+
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const menuPanel = document.querySelector("[data-menu-panel]");
+  if (menuToggle && menuPanel) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuPanel.classList.toggle("is-open");
+      menuToggle.classList.toggle("is-open", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+
+  const chapelSelect = document.querySelector("[data-chapel-select]");
+  if (chapelSelect) {
+    renderChapel(chapelSelect.value);
+    chapelSelect.addEventListener("change", (event) => {
+      renderChapel(event.target.value);
+    });
+  }
+
+  const groupButtons = document.querySelectorAll("[data-group]");
+  const groupModal = document.querySelector("[data-group-modal]");
+  const groupClose = document.querySelector("[data-group-close]");
+  if (groupButtons.length && groupModal) {
+    groupButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        renderGroup(button.getAttribute("data-group"));
+        groupModal.hidden = false;
+        document.body.classList.add("modal-open");
+      });
+    });
+
+    if (groupClose) {
+      groupClose.addEventListener("click", closeGroupModal);
+    }
+
+    groupModal.addEventListener("click", (event) => {
+      if (event.target === groupModal) {
+        closeGroupModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !groupModal.hidden) {
+        closeGroupModal();
+      }
+    });
+  }
+
+  const flyerModal = document.querySelector("[data-flyer-modal]");
+  const flyerImage = document.querySelector("[data-flyer-image]");
+  const flyerCaption = document.querySelector("[data-flyer-caption]");
+  const flyerClose = document.querySelector("[data-flyer-close]");
+  const flyerTriggers = document.querySelectorAll("[data-flyer-trigger]");
+
+  function closeFlyerModal() {
+    if (flyerModal) {
+      flyerModal.hidden = true;
+    }
+    document.body.classList.remove("modal-open");
+  }
+
+  if (flyerModal && flyerImage && flyerCaption && flyerTriggers.length) {
+    flyerTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        flyerImage.src = trigger.getAttribute("data-flyer-src") || "";
+        flyerImage.alt = trigger.getAttribute("data-flyer-alt") || "";
+        flyerCaption.textContent = trigger.getAttribute("data-flyer-alt") || "";
+        flyerModal.hidden = false;
+        document.body.classList.add("modal-open");
+      });
+    });
+
+    if (flyerClose) {
+      flyerClose.addEventListener("click", closeFlyerModal);
+    }
+
+    flyerModal.addEventListener("click", (event) => {
+      if (event.target === flyerModal) {
+        closeFlyerModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !flyerModal.hidden) {
+        closeFlyerModal();
+      }
+    });
+  }
+});
