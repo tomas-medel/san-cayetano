@@ -1,9 +1,8 @@
-﻿const chapels = {
+const chapels = {
   cayetano: {
-    name: "San Cayetano · SEDE PARROQUIAL",
+    name: "San Cayetano",
     location: "Av. Ing. Eduardo Madero 1174",
-    image:
-      "/img/sancayetano.jpeg",
+    image: "/img/sancayetano.jpeg",
     schedule: [
       ["Lunes a viernes", "18:30"],
       ["Sábados", "19:00"],
@@ -13,40 +12,27 @@
   lourdes: {
     name: "Nuestra Señora de Lourdes",
     location: "2521 Sta. Margarita",
-    image:
-      "/img/lourdes.jpeg",
-    schedule: [
-      ["Miércoles", "17:00"],
-    ],
+    image: "/img/lourdes.jpeg",
+    schedule: [["Miércoles", "17:00"]],
   },
   carmen: {
     name: "Nuestra Señora del Carmen",
     location: "Juan XXIII 5700, Del Viso",
-    image:
-      "/img/carmen.jpeg",
-    schedule: [
-      ["Jueves", "09:00"],
-    ],
+    image: "/img/carmen.jpeg",
+    schedule: [["Jueves", "09:00"]],
   },
   medalla: {
     name: "Nuestra Señora de la Medalla Milagrosa",
     location: "1198 Abella Caprile",
-    image:
-      "/img/medalla.jpeg",
-    schedule: [
-      ["Jueves", "17:00"],
-    ],
+    image: "/img/medalla.jpeg",
+    schedule: [["Jueves", "17:00"]],
   },
   misericordioso: {
     name: "Jesús Misericordioso",
     location: "Sto Domingo 1538",
-    mapEmbed:
-      "https://www.google.com/maps?q=Capilla%20Jes%C3%BAs%20Misericordioso%2C%20Sto%20Domingo%201538&output=embed",
-    image:
-      "/img/misericordioso.jpeg",
-    schedule: [
-      ["Miercoles", "17:00"],
-    ],
+    mapEmbed: "https://www.google.com/maps?q=Capilla%20Jes%C3%BAs%20Misericordioso%2C%20Sto%20Domingo%201538&output=embed",
+    image: "/img/misericordioso.jpeg",
+    schedule: [["Miércoles", "17:00"]],
   },
 };
 
@@ -55,78 +41,67 @@ const groups = {
     title: "Scout",
     time: "Sábados 15:30",
     chapel: "San Cayetano",
-    description:
-      "Grupo de encuentro, servicio y formación para niños, adolescentes y jóvenes.",
+    description: "Grupo de encuentro, servicio y formación para niños, adolescentes y jóvenes.",
   },
   moscati: {
     title: "San Giuseppe Moscati",
     time: "Martes 19:00",
     chapel: "San Cayetano",
-    description:
-      "Espacio comunitario de formación y servicio inspirado en San Giuseppe Moscati.",
+    description: "Espacio comunitario de formación y servicio inspirado en San Giuseppe Moscati.",
   },
   filomena: {
     title: "Santa Filomena",
     time: "Miércoles 18:30",
     chapel: "San Cayetano",
-    description:
-      "Grupo de oración y encuentro dedicado a Santa Filomena.",
+    description: "Grupo de oración y encuentro dedicado a Santa Filomena.",
   },
   bernardita: {
     title: "Santa Bernardita",
-    time: "Sabados 17:00",
+    time: "Sábados 17:00",
     chapel: "Lourdes",
-    description:
-      "Grupo parroquial de encuentro, oración y acompañamiento comunitario.",
+    description: "Grupo parroquial de encuentro, oración y acompañamiento comunitario.",
   },
   sanjose: {
     title: "San José",
     time: "Jueves 19:30",
     chapel: "San Cayetano",
-    description:
-      "Comunidad de encuentro fraterno con espacios de oración y acompañamiento.",
+    description: "Comunidad de encuentro fraterno con espacios de oración y acompañamiento.",
   },
   catequesis: {
     title: "Catequesis",
     time: "Sábados 09:00",
     chapel: "San Cayetano",
-    description:
-      "Preparación para sacramentos con acompaÃ±amiento a niños y familias.",
+    description: "Preparación para sacramentos con acompañamiento a niños y familias.",
   },
   piox: {
     title: "San Pio X",
     time: "Viernes 18:30",
     chapel: "San Cayetano",
-    description:
-      "Grupo parroquial de formación y vida comunitaria bajo el patronazgo de San Pio X.",
+    description: "Grupo parroquial de formación y vida comunitaria bajo el patronazgo de San Pio X.",
   },
   alcolicosAnonimos: {
-    title: "Alcolicos Anonimos",
+    title: "Alcohólicos Anónimos",
     time: "Viernes 18:30",
     chapel: "San Cayetano",
-    description:
-      "Grupo parroquial de formación y vida comunitaria bajo el patronazgo de San Pio X.",
+    description: "Espacio de acompañamiento y encuentro para quienes buscan recuperación y contención.",
   },
   narcoticosAnoninos: {
-    title: "Narcoticos Anonimos",
+    title: "Narcóticos Anónimos",
     time: "Viernes 18:30",
     chapel: "San Cayetano",
-    description:
-      "Grupo parroquial de formación y vida comunitaria bajo el patronazgo de San Pio X.",
+    description: "Grupo de apoyo para el camino de recuperación personal y comunitaria.",
   },
   alanon: {
-    title: "ALANON",
+    title: "Al-Anon",
     time: "Viernes 18:30",
     chapel: "San Cayetano",
-    description:
-      "Grupo parroquial de formación y vida comunitaria bajo el patronazgo de San Pio X.",
+    description: "Encuentro de apoyo y escucha para familiares y personas cercanas.",
   },
   redSanar: {
     title: "Red Sanar",
     time: "Viernes 18:30",
     chapel: "San Cayetano",
-    description:
-      "Grupo parroquial de formación y vida comunitaria bajo el patronazgo de San Pio X.",
+    description: "Espacio comunitario de acompañamiento, escucha y sanación interior.",
   },
 };
 
@@ -140,21 +115,15 @@ function renderChapel(chapelKey) {
   const location = document.querySelector("[data-chapel-location]");
   const map = document.querySelector("[data-chapel-map]");
 
-  if (!name || !schedule || !banner || !location || !map) {
-    return;
-  }
+  if (!name || !schedule || !banner || !location || !map) return;
 
   name.textContent = chapel.name;
   location.textContent = chapel.location;
   banner.style.backgroundImage = `url('${chapel.image}')`;
-  map.src =
-    chapel.mapEmbed ||
-    `https://www.google.com/maps?q=${encodeURIComponent(chapel.location)}&output=embed`;
+  map.src = chapel.mapEmbed || `https://www.google.com/maps?q=${encodeURIComponent(chapel.location)}&output=embed`;
   map.title = `Mapa de ${chapel.name}`;
 
-  schedule.innerHTML = chapels[chapelKey].schedule
-    .map(([day, time]) => `<li><strong>${day}</strong><span>${time}</span></li>`)
-    .join("");
+  schedule.innerHTML = chapel.schedule.map(([day, time]) => `<li><strong>${day}</strong><span>${time}</span></li>`).join("");
 }
 
 function renderGroup(groupKey) {
@@ -166,9 +135,7 @@ function renderGroup(groupKey) {
   const chapel = document.querySelector("[data-group-chapel]");
   const description = document.querySelector("[data-group-description]");
 
-  if (!title || !time || !chapel || !description) {
-    return;
-  }
+  if (!title || !time || !chapel || !description) return;
 
   title.textContent = group.title;
   time.textContent = group.time;
@@ -179,9 +146,7 @@ function renderGroup(groupKey) {
 document.addEventListener("DOMContentLoaded", () => {
   function closeGroupModal() {
     const modal = document.querySelector("[data-group-modal]");
-    if (modal) {
-      modal.hidden = true;
-    }
+    if (modal) modal.hidden = true;
     document.body.classList.remove("modal-open");
   }
 
@@ -215,20 +180,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    if (groupClose) {
-      groupClose.addEventListener("click", closeGroupModal);
-    }
+    if (groupClose) groupClose.addEventListener("click", closeGroupModal);
 
     groupModal.addEventListener("click", (event) => {
-      if (event.target === groupModal) {
-        closeGroupModal();
-      }
+      if (event.target === groupModal) closeGroupModal();
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && !groupModal.hidden) {
-        closeGroupModal();
-      }
+      if (event.key === "Escape" && !groupModal.hidden) closeGroupModal();
     });
   }
 
@@ -239,9 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const flyerTriggers = document.querySelectorAll("[data-flyer-trigger]");
 
   function closeFlyerModal() {
-    if (flyerModal) {
-      flyerModal.hidden = true;
-    }
+    if (flyerModal) flyerModal.hidden = true;
     document.body.classList.remove("modal-open");
   }
 
@@ -256,20 +213,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    if (flyerClose) {
-      flyerClose.addEventListener("click", closeFlyerModal);
-    }
+    if (flyerClose) flyerClose.addEventListener("click", closeFlyerModal);
 
     flyerModal.addEventListener("click", (event) => {
-      if (event.target === flyerModal) {
-        closeFlyerModal();
-      }
+      if (event.target === flyerModal) closeFlyerModal();
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && !flyerModal.hidden) {
-        closeFlyerModal();
-      }
+      if (event.key === "Escape" && !flyerModal.hidden) closeFlyerModal();
     });
   }
 });
