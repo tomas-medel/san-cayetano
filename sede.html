@@ -71,10 +71,25 @@
               <li><strong>Mail</strong>sancayetanodelviso@yahoo.com.ar<br />santuariosancayetanodelviso@gmail.com</li>
               <li><strong>Secretaría</strong>Lunes, miércoles y viernes de 08:30 a 11:30</li>
             </ul>
+            <div class="location-groups-block">
+              <h3 class="location-groups-title">Grupos en la sede</h3>
+              <div class="group-list location-group-list" data-location-groups data-location-name="San Cayetano"></div>
+            </div>
           </article>
         </div>
       </section>
     </main>
+
+    <div class="modal-backdrop" data-group-modal hidden>
+      <div class="group-modal" role="dialog" aria-modal="true" aria-labelledby="group-modal-title">
+        <button class="modal-close" type="button" aria-label="Cerrar" data-group-close>&times;</button>
+        <span class="section-kicker">Información</span>
+        <h2 class="section-title" id="group-modal-title" data-group-title>Grupo</h2>
+        <p class="group-time" data-group-time></p>
+        <p class="group-chapel group-chapel-modal" data-group-chapel></p>
+        <p data-group-description></p>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <div class="site-shell footer-card">

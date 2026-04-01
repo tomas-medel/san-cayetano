@@ -1,4 +1,4 @@
-const chapels = {
+﻿const chapels = {
   cayetano: {
     name: "San Cayetano",
     location: "Av. Ing. Eduardo Madero 1174",
@@ -13,26 +13,33 @@ const chapels = {
     name: "Nuestra Señora de Lourdes",
     location: "2521 Sta. Margarita",
     image: "/img/lourdes.jpeg",
-    schedule: [["Miércoles", "17:00"]],
+    schedule: [
+      ["Jueves", "17:00"], 
+      ["Sábados", "17:00"],
+    ],
   },
   carmen: {
     name: "Nuestra Señora del Carmen",
     location: "Juan XXIII 5700, Del Viso",
     image: "/img/carmen.jpeg",
-    schedule: [["Jueves", "09:00"]],
+    schedule: [
+      ["Miércoles", "18:30"],
+      ["Sábados", "18:00"],
+      ["Domingos", "09:30"],
+    ],
   },
   medalla: {
     name: "Nuestra Señora de la Medalla Milagrosa",
     location: "1198 Abella Caprile",
     image: "/img/medalla.jpeg",
-    schedule: [["Jueves", "17:00"]],
+    schedule: [["Domingos", "17:00"]],
   },
   misericordioso: {
     name: "Jesús Misericordioso",
     location: "Sto Domingo 1538",
     mapEmbed: "https://www.google.com/maps?q=Capilla%20Jes%C3%BAs%20Misericordioso%2C%20Sto%20Domingo%201538&output=embed",
     image: "/img/misericordioso.jpeg",
-    schedule: [["Miércoles", "17:00"]],
+    schedule: [["Sábados", "16:00"]],
   },
 };
 
@@ -105,6 +112,34 @@ const groups = {
   },
 };
 
+function getGroupsByChapel(chapelName) {
+  return Object.entries(groups).filter(([, group]) => group.chapel === chapelName);
+}
+
+function renderLocationGroups(chapelName) {
+  const groupLists = document.querySelectorAll("[data-location-groups]");
+  if (!groupLists.length) return;
+
+  const groupsForChapel = getGroupsByChapel(chapelName);
+
+  groupLists.forEach((groupList) => {
+    const targetChapel = groupList.getAttribute("data-location-name") || chapelName;
+    const locationGroups = targetChapel === chapelName ? groupsForChapel : getGroupsByChapel(targetChapel);
+
+    groupList.innerHTML = locationGroups.length
+      ? locationGroups
+          .map(
+            ([groupKey, group]) => `
+              <button class="group-item location-group-item" type="button" data-group="${groupKey}">
+                <strong>${group.title}</strong>
+              </button>
+            `
+          )
+          .join("")
+      : `<p class="location-group-empty">No hay grupos cargados para esta ubicación.</p>`;
+  });
+}
+
 function renderChapel(chapelKey) {
   const chapel = chapels[chapelKey];
   if (!chapel) return;
@@ -124,6 +159,7 @@ function renderChapel(chapelKey) {
   map.title = `Mapa de ${chapel.name}`;
 
   schedule.innerHTML = chapel.schedule.map(([day, time]) => `<li><strong>${day}</strong><span>${time}</span></li>`).join("");
+  renderLocationGroups(chapel.name);
 }
 
 function renderGroup(groupKey) {
@@ -166,18 +202,20 @@ document.addEventListener("DOMContentLoaded", () => {
     chapelSelect.addEventListener("change", (event) => {
       renderChapel(event.target.value);
     });
+  } else if (document.querySelector("[data-location-groups]")) {
+    renderLocationGroups("San Cayetano");
   }
 
-  const groupButtons = document.querySelectorAll("[data-group]");
   const groupModal = document.querySelector("[data-group-modal]");
   const groupClose = document.querySelector("[data-group-close]");
-  if (groupButtons.length && groupModal) {
-    groupButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        renderGroup(button.getAttribute("data-group"));
-        groupModal.hidden = false;
-        document.body.classList.add("modal-open");
-      });
+  if (groupModal) {
+    document.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-group]");
+      if (!button) return;
+
+      renderGroup(button.getAttribute("data-group"));
+      groupModal.hidden = false;
+      document.body.classList.add("modal-open");
     });
 
     if (groupClose) groupClose.addEventListener("click", closeGroupModal);
