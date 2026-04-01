@@ -179,6 +179,71 @@ function renderGroup(groupKey) {
   description.textContent = group.description;
 }
 
+function setupRevealAnimations() {
+  const revealSelectors = [
+    ".page-hero-card",
+    ".hero-main",
+    ".hero-card",
+    ".latest-news-card",
+    ".news-row",
+    ".school-card",
+    ".chapel-card",
+    ".chapel-detail-card",
+    ".contact-card",
+    ".group-item",
+    ".footer-card",
+    ".flyer-card",
+  ];
+
+  const revealElements = document.querySelectorAll(revealSelectors.join(", "));
+  if (!revealElements.length) return;
+
+  revealElements.forEach((element, index) => {
+    element.classList.add("reveal-on-scroll");
+    element.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 70}ms`);
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    revealElements.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.16,
+      rootMargin: "0px 0px -10% 0px",
+    }
+  );
+
+  revealElements.forEach((element) => observer.observe(element));
+}
+
+function setupSocialLinks() {
+  const socialLinks = document.querySelectorAll(".footer-socials a");
+  if (!socialLinks.length) return;
+
+  socialLinks.forEach((link) => {
+    const href = (link.getAttribute("href") || "").toLowerCase();
+    let social = "";
+    let label = link.textContent.trim();
+
+    if (href.includes("instagram")) social = "instagram";
+    if (href.includes("facebook")) social = "facebook";
+    if (href.includes("youtube")) social = "youtube";
+    if (!social) return;
+
+    link.dataset.social = social;
+    link.innerHTML = `<span class="social-icon" aria-hidden="true"></span><span class="social-label">${label}</span>`;
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   function closeGroupModal() {
     const modal = document.querySelector("[data-group-modal]");
@@ -195,6 +260,10 @@ document.addEventListener("DOMContentLoaded", () => {
       menuToggle.setAttribute("aria-expanded", String(isOpen));
     });
   }
+
+  setupSocialLinks();
+  setupRevealAnimations();
+  requestAnimationFrame(() => document.body.classList.add("page-ready"));
 
   const chapelSelect = document.querySelector("[data-chapel-select]");
   if (chapelSelect) {
